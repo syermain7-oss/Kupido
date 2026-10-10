@@ -1,421 +1,137 @@
+html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sala de Confrontación - Acceso Oficial</title>
-    <!-- Iconos de Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
-            --glass-bg: rgba(255, 255, 255, 0.07);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
-            --bubble-user: #6366f1;
-            --bubble-other: rgba(255, 255, 255, 0.1);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camila Rueda | Contenido exclusivo</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            background: var(--bg-gradient);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text);
-            padding: 16px;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #120b10, #4b1025);
+    }
 
-        .app-container {
-            width: 100%;
-            max-width: 450px;
-            height: 600px;
-            display: flex;
-        }
+    .card {
+      width: 100%;
+      max-width: 650px;
+      padding: 45px 30px;
+      text-align: center;
+      background: #21131c;
+      border: 1px solid #7d2948;
+      border-radius: 24px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    }
 
-        /* Glassmorphism Card */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
+    h1 {
+      margin: 0 0 15px;
+      color: #ff668f;
+      font-size: 44px;
+    }
 
-        .card {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 24px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
+    h2 {
+      margin: 0 auto 20px;
+      max-width: 500px;
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 1.4;
+    }
 
-        .hidden {
-            display: none !important;
-        }
+    p {
+      color: #e8cbd5;
+      font-size: 17px;
+      line-height: 1.6;
+    }
 
-        /* Formulario Login */
-        .card-header {
-            text-align: center;
-            margin-bottom: 28px;
-        }
+    .btn {
+      display: block;
+      margin: 16px auto;
+      max-width: 380px;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      background: #e83d70;
+      transition: 0.3s;
+    }
 
-        .brand-icon {
-            width: 48px;
-            height: 48px;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
+    .btn:hover {
+      background: #ff668f;
+      transform: scale(1.03);
+    }
 
-        .card-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+    .btn.facebook {
+      background: #8b3155;
+    }
 
-        .card-header p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            margin-top: 4px;
-        }
+    .btn.facebook:hover {
+      background: #b94b73;
+    }
 
-        .input-group {
-            margin-bottom: 20px;
-        }
+    small {
+      display: block;
+      margin-top: 25px;
+      color: #c9aab6;
+      line-height: 1.5;
+    }
 
-        .input-group label {
-            display: block;
-            font-size: 0.825rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
+    @media (max-width: 600px) {
+      .card {
+        padding: 35px 20px;
+      }
 
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+      h1 {
+        font-size: 36px;
+      }
 
-        .input-wrapper svg {
-            position: absolute;
-            left: 14px;
-            width: 18px;
-            height: 18px;
-            color: var(--text-muted);
-        }
-
-        .input-wrapper input {
-            width: 100%;
-            padding: 12px 14px 12px 42px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            color: white;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .input-wrapper input:focus {
-            border-color: var(--primary);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 12px;
-            background: var(--primary);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background: var(--primary-hover);
-        }
-
-        /* Pantalla de Chat Interna */
-        .chat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .status-online {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-        }
-
-        .btn-icon {
-            width: auto;
-            padding: 8px;
-            background: transparent;
-            color: var(--text-muted);
-        }
-
-        .btn-icon:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        /* Mensajes */
-        .messages-container {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .system-message {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .message {
-            max-width: 80%;
-            padding: 10px 14px;
-            border-radius: 16px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .message.sent {
-            align-self: flex-end;
-            background: var(--bubble-user);
-            border-bottom-right-radius: 4px;
-        }
-
-        .message.received {
-            align-self: flex-start;
-            background: var(--bubble-other);
-            border-bottom-left-radius: 4px;
-        }
-
-        .message .author {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 2px;
-            display: block;
-        }
-
-        /* Área de Envío */
-        .chat-input-area {
-            display: flex;
-            gap: 8px;
-            padding-top: 12px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .chat-input-area input {
-            flex: 1;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            color: white;
-            outline: none;
-        }
-
-        .btn-send {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            padding: 0;
-        }
-    </style>
+      h2 {
+        font-size: 21px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <main class="app-container">
-        <!-- PANTALLA DE INGRESO / REGISTRO -->
-        <section id="login-screen" class="card glass">
-            <div class="card-header">
-                <i data-lucide="shield-alert" class="brand-icon"></i>
-                <h2>Sala de Confrontación</h2>
-                <p>Ingrese sus credenciales para acceder al procedimiento</p>
-            </div>
-            
-            <form id="login-form">
-                <div class="input-group">
-                    <label for="username">Nombre completo o Alias</label>
-                    <div class="input-wrapper">
-                        <i data-lucide="user"></i>
-                        <input type="text" id="username" placeholder="Ej. Juan Pérez" required autocomplete="off">
-                    </div>
-                </div>
+  <main class="card">
+    <h1>Camila Rueda</h1>
 
-                <div class="input-group">
-                    <label for="email">Correo electrónico</label>
-                    <div class="input-wrapper">
-                        <i data-lucide="mail"></i>
-                        <input type="email" id="email" placeholder="correo@ejemplo.com" required autocomplete="off">
-                    </div>
-                </div>
+    <h2>Contenido exclusivo y personalizado para adultos</h2>
 
-                <button type="submit" class="btn">
-                    <span>Ingresar a la Sala</span>
-                    <i data-lucide="arrow-right"></i>
-                </button>
-            </form>
-        </section>
+    <p>
+      Contenido privado, atención discreta y experiencias hechas a tu medida.
+    </p>
 
-        <!-- PANTALLA DE CHAT / SALA -->
-        <section id="chat-screen" class="card glass hidden">
-            <header class="chat-header">
-                <div class="user-info">
-                    <div class="avatar" id="user-avatar">U</div>
-                    <div>
-                        <h3>Sala de Confrontación</h3>
-                        <span class="status-online"><span class="dot"></span> Conectado: <strong id="display-user">Usuario</strong></span>
-                    </div>
-                </div>
-                <button id="leave-btn" class="btn btn-icon" title="Salir de la sala">
-                    <i data-lucide="log-out"></i>
-                </button>
-            </header>
+    <a
+      class="btn"
+      href="https://t.me/CamilaRued"
+      target="_blank"
+      rel="noopener noreferrer">
+      Contactarme por Telegram
+    </a>
 
-            <div id="messages-container" class="messages-container">
-                <div class="system-message">
-                    <span>Se ha establecido la conexión segura a la sala de confrontación.</span>
-                </div>
-            </div>
+    <a
+      class="btn facebook"
+      href="https://www.facebook.com/profile.php?id=61595239496910&mibextid=ZbWKwL"
+      target="_blank"
+      rel="noopener noreferrer">
+      Visitar Facebook
+    </a>
 
-            <form id="chat-form" class="chat-input-area">
-                <input type="text" id="message-input" placeholder="Escriba su mensaje o declaración..." required autocomplete="off">
-                <button type="submit" class="btn btn-send" title="Enviar">
-                    <i data-lucide="send"></i>
-                </button>
-            </form>
-        </section>
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-
-            const loginForm = document.getElementById('login-form');
-            const chatForm = document.getElementById('chat-form');
-            const loginScreen = document.getElementById('login-screen');
-            const chatScreen = document.getElementById('chat-screen');
-            
-            const usernameInput = document.getElementById('username');
-            const messageInput = document.getElementById('message-input');
-            const messagesContainer = document.getElementById('messages-container');
-            
-            const displayUser = document.getElementById('display-user');
-            const userAvatar = document.getElementById('user-avatar');
-            const leaveBtn = document.getElementById('leave-btn');
-
-            let currentUser = '';
-
-            // Acceso a la sala interna
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                currentUser = usernameInput.value.trim();
-
-                if (currentUser) {
-                    displayUser.textContent = currentUser;
-                    userAvatar.textContent = currentUser.charAt(0).toUpperCase();
-
-                    loginScreen.classList.add('hidden');
-                    chatScreen.classList.remove('hidden');
-                }
-            });
-
-            // Enviar mensaje dentro de la sala
-            chatForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const text = messageInput.value.trim();
-
-                if (text) {
-                    addMessage(text, 'sent');
-                    messageInput.value = '';
-                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                }
-            });
-
-            function addMessage(text, type, author = '') {
-                const msgDiv = document.createElement('div');
-                msgDiv.classList.add('message', type);
-
-                if (type === 'received' && author) {
-                    const authorSpan = document.createElement('span');
-                    authorSpan.classList.add('author');
-                    authorSpan.textContent = author;
-                    msgDiv.appendChild(authorSpan);
-                }
-
-                const textNode = document.createTextNode(text);
-                msgDiv.appendChild(textNode);
-                messagesContainer.appendChild(msgDiv);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }
-
-            // Salir de la sala
-            leaveBtn.addEventListener('click', () => {
-                chatScreen.classList.add('hidden');
-                loginScreen.classList.remove('hidden');
-                usernameInput.value = '';
-                document.getElementById('email').value = '';
-                messagesContainer.innerHTML = `
-                    <div class="system-message">
-                        <span>Se ha establecido la conexión segura a la sala de confrontación.</span>
-                    </div>
-                `;
-            });
-        });
-    </script>
+    <small>
+      Solo para mayores de 18 años · Respeto y privacidad
+    </small>
+  </main>
 </body>
-  </html>
-  
+    </html>
