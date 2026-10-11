@@ -1,45 +1,120 @@
-
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Camila Rueda - Contenido exclusivo y personalizado.">
   <title>Camila Rueda | Contenido exclusivo</title>
   <style>
-    *{box-sizing:border-box}
-    body{margin:0;background:#120b10;color:#fff;font-family:Arial,sans-serif}
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
-      padding:30px;background:linear-gradient(135deg,#120b10,#4b1025)}
-    .card{max-width:900px;width:100%;display:grid;grid-template-columns:1fr 1fr;
-      gap:30px;align-items:center;background:#21131c;padding:25px;border-radius:24px;
-      box-shadow:0 15px 50px #0008}
-    img{width:100%;height:520px;object-fit:cover;border-radius:18px}
-    h1{font-size:46px;margin:0 0 12px;color:#ff668f}
-    h2{font-weight:normal;line-height:1.4}
-    p{color:#e8cbd5;line-height:1.6}
-    .btn{display:block;text-align:center;text-decoration:none;margin:14px 0;padding:15px;
-      border-radius:30px;background:#e83d70;color:white;font-weight:bold}
-    .btn.alt{background:#8b3155}
-    small{display:block;text-align:center;color:#c9aab6;margin-top:20px}
-    @media(max-width:700px){.card{grid-template-columns:1fr}img{height:430px}h1{font-size:36px}}
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #120b10;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 15px;
+      background: linear-gradient(135deg, #120b10, #4b1025);
+    }
+    .card {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      background: #21131c;
+      padding: 25px;
+      border-radius: 24px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    }
+    img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 18px;
+      background-color: #3b1d2e;
+    }
+    h1 {
+      font-size: 46px;
+      margin: 0 0 12px;
+      color: #ff668f;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 1.4;
+      margin-top: 0;
+    }
+    p {
+      color: #e8cbd5;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      margin: 14px 0;
+      padding: 15px;
+      border-radius: 30px;
+      background: #e83d70;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+      background: #f05282;
+      transform: translateY(-2px);
+    }
+    .btn.alt {
+      background: #8b3155;
+    }
+    .btn.alt:hover {
+      background: #a13d66;
+    }
+    small {
+      display: block;
+      text-align: center;
+      color: #c9aab6;
+      margin-top: 20px;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 700px) {
+      .card {
+        grid-template-columns: 1fr;
+      }
+      img {
+        height: 380px;
+      }
+      h1 {
+        font-size: 36px;
+      }
+    }
   </style>
 </head>
 <body>
   <main class="hero">
     <section class="card">
-      <img src="camila.jpg" alt="Camila Rueda">
+      <img src="camila.jpg" alt="Fotografía de Camila Rueda">
       <div>
         <h1>Camila Rueda</h1>
         <h2>Contenido exclusivo y personalizado para adultos</h2>
         <p>Contenido privado, atención discreta y experiencias hechas a tu medida.</p>
 
-        <a class="btn" href="https://t.me/CamilaRued" target="_blank">
-          Contactarme por Telegram
+        <!-- Botón con mensaje predeterminado automático directo -->
+        <a class="btn" href="https://t.me/CamilaRued?text=Hola,%20Camila,%20vengo%20de%20tu%20p%C3%A1gina%20web" target="_blank" rel="noopener noreferrer">
+          Hablar por Telegram ahora
         </a>
 
-        <a class="btn alt"
-          href="https://www.facebook.com/profile.php?id=61595239496910&mibextid=ZbWKwL"
-          target="_blank">
+        <a class="btn alt" href="https://www.facebook.com/profile.php?id=61595239496910&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
           Visitar Facebook
         </a>
 
@@ -48,4 +123,5 @@
     </section>
   </main>
 </body>
-</html>
+    </html>
+    
