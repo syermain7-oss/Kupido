@@ -3,125 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Camila Rueda - Contenido exclusivo y personalizado.">
-  <title>Camila Rueda | Contenido exclusivo</title>
+  <meta name="description" content="Cupido - Catálogo Exclusivo">
+  <title>Cupido | Catálogo Exclusivo</title>
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
-      margin: 0;
-      background: #120b10;
+      background: #0f0a0e;
       color: #fff;
-      font-family: Arial, sans-serif;
-    }
-    .hero {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 30px 15px;
-      background: linear-gradient(135deg, #120b10, #4b1025);
     }
-    .card {
-      max-width: 900px;
+
+    /* Encabezado Principal */
+    header {
       width: 100%;
+      padding: 40px 20px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #2a0818 0%, #0f0a0e 100%);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff4d7d;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #d1b3c4;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Contenedor del Catálogo */
+    .catalog-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 30px 20px 60px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      align-items: center;
-      background: #21131c;
-      padding: 25px;
-      border-radius: 24px;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+      justify-content: center;
     }
-    img {
+
+    /* Tarjeta de Perfil */
+    .profile-card {
+      background: #1a1017;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .profile-card:hover {
+      transform: translateY(-5px);
+      border-color: #ff4d7d;
+    }
+
+    .profile-img-container {
       width: 100%;
-      height: 520px;
+      height: 380px;
+      background-color: #2b1724;
+      overflow: hidden;
+      position: relative;
+    }
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 18px;
-      background-color: #3b1d2e;
     }
-    h1 {
-      font-size: 46px;
-      margin: 0 0 12px;
-      color: #ff668f;
+
+    .profile-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
     }
-    h2 {
-      font-weight: normal;
-      font-size: 1.25rem;
-      line-height: 1.4;
-      margin-top: 0;
+    .profile-info h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 6px;
     }
-    p {
-      color: #e8cbd5;
-      line-height: 1.6;
-      margin-bottom: 24px;
+    .profile-info p {
+      font-size: 0.9rem;
+      color: #c4a5b7;
+      margin-bottom: 20px;
     }
-    .btn {
+
+    /* Botón de Contacto Directo */
+    .btn-telegram {
       display: block;
+      width: 100%;
       text-align: center;
       text-decoration: none;
-      margin: 14px 0;
-      padding: 15px;
-      border-radius: 30px;
+      padding: 12px;
+      border-radius: 25px;
       background: #e83d70;
       color: white;
       font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s ease;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
     }
-    .btn:hover {
+    .btn-telegram:hover {
       background: #f05282;
-      transform: translateY(-2px);
     }
-    .btn.alt {
-      background: #8b3155;
-    }
-    .btn.alt:hover {
-      background: #a13d66;
-    }
-    small {
-      display: block;
+
+    /* Pie de página */
+    footer {
+      margin-top: auto;
+      padding: 20px;
       text-align: center;
-      color: #c9aab6;
-      margin-top: 20px;
+      color: #8c707f;
       font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      width: 100%;
     }
-    @media (max-width: 700px) {
-      .card {
-        grid-template-columns: 1fr;
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
       }
-      img {
-        height: 380px;
-      }
-      h1 {
-        font-size: 36px;
+      .profile-img-container {
+        height: 340px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="hero">
-    <section class="card">
-      <img src="camila.jpg" alt="Fotografía de Camila Rueda">
-      <div>
-        <h1>Camila Rueda</h1>
-        <h2>Contenido exclusivo y personalizado para adultos</h2>
-        <p>Contenido privado, atención discreta y experiencias hechas a tu medida.</p>
 
-        <!-- Botón con mensaje predeterminado automático directo -->
-        <a class="btn" href="https://t.me/CamilaRued?text=Hola,%20Camila,%20vengo%20de%20tu%20p%C3%A1gina%20web" target="_blank" rel="noopener noreferrer">
-          Hablar por Telegram ahora
-        </a>
+  <!-- Encabezado -->
+  <header>
+    <h1>CUPIDO</h1>
+    <p>Catálogo Exclusivo · Selección de Perfiles</p>
+  </header>
 
-        <a class="btn alt" href="https://www.facebook.com/profile.php?id=61595239496910&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
-          Visitar Facebook
-        </a>
+  <!-- Rejilla del Catálogo -->
+  <main class="catalog-container">
 
-        <small>Solo para mayores de 18 años · Respeto y privacidad</small>
+    <!-- Tarjeta 1: Camila Rueda -->
+    <article class="profile-card">
+      <div class="profile-img-container">
+        <img src="camila.jpg" alt="Camila Rueda">
       </div>
-    </section>
+      <div class="profile-info">
+        <div>
+          <h2>Camila Rueda</h2>
+          <p>Contenido exclusivo y atención personalizada.</p>
+        </div>
+        <a class="btn-telegram" 
+           href="https://t.me/CamilaRued?text=Hola,%20Camila,%20vengo%20de%20tu%20p%C3%A1gina%20web" 
+           target="_blank" 
+           rel="noopener noreferrer">
+           Contactar por Telegram
+        </a>
+      </div>
+    </article>
+
+    <!-- Tarjeta 2: Juliiethh -->
+    <article class="profile-card">
+      <div class="profile-img-container">
+        <img src="julieth.jpg" alt="Juliiethh">
+      </div>
+      <div class="profile-info">
+        <div>
+          <h2>Juliiethh</h2>
+          <p>Atención discreta y experiencias a tu medida.</p>
+        </div>
+        <a class="btn-telegram" 
+           href="https://t.me/Juliiietthh?text=Hola,%20Julieth,%20vengo%20de%20tu%20p%C3%A1gina%20web" 
+           target="_blank" 
+           rel="noopener noreferrer">
+           Contactar por Telegram
+        </a>
+      </div>
+    </article>
+
+    <!-- Tarjeta 3: Vannessa -->
+    <article class="profile-card">
+      <div class="profile-img-container">
+        <img src="vanessa.jpg" alt="Vannessa">
+      </div>
+      <div class="profile-info">
+        <div>
+          <h2>Vannessa</h2>
+          <p>Perfil exclusivo y contenido privado.</p>
+        </div>
+        <a class="btn-telegram" 
+           href="https://t.me/Okvanesa09?text=Hola,%20Vanessa,%20vengo%20de%20tu%20p%C3%A1gina%20web" 
+           target="_blank" 
+           rel="noopener noreferrer">
+           Contactar por Telegram
+        </a>
+      </div>
+    </article>
+
   </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <small>Cupido Catálogo · Solo para mayores de 18 años · Respeto y privacidad</small>
+  </footer>
+
 </body>
-    </html>
-    
+          </html>
+          
