@@ -1,219 +1,216 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cupido - Catálogo Exclusivo">
-  <title>Cupido | Catálogo Exclusivo</title>
+
+<div id="kupido-girls">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      background: #0f0a0e;
-      color: #fff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    #kupido-girls {
+      --fondo: #120b18;
+      --tarjeta: #24152d;
+      --rosa: #ff4f91;
+      --morado: #9b5de5;
+      --texto: #fff;
+      --suave: #d9c8df;
+      font-family: Arial, sans-serif;
+      color: var(--texto);
+      background: linear-gradient(135deg, var(--fondo), #42183f);
+      padding: 45px 18px;
+      border-radius: 24px;
     }
 
-    /* Encabezado Principal */
-    header {
-      width: 100%;
-      padding: 40px 20px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, #2a0818 0%, #0f0a0e 100%);
+    #kupido-girls * {
+      box-sizing: border-box;
     }
-    header h1 {
-      font-size: 2.5rem;
-      color: #ff4d7d;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+
+    .kg-contenedor {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .kg-logo {
+      font-size: 48px;
+      font-weight: bold;
+      color: var(--rosa);
       margin-bottom: 8px;
     }
-    header p {
-      color: #d1b3c4;
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
+
+    .kg-subtitulo {
+      color: var(--suave);
+      font-size: 18px;
+      margin: 0 auto 35px;
+      max-width: 650px;
+      line-height: 1.5;
     }
 
-    /* Contenedor del Catálogo */
-    .catalog-container {
-      width: 100%;
-      max-width: 1100px;
-      padding: 30px 20px 60px;
+    .kg-aviso {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 14px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .kg-modelos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .kg-tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid #713b78;
+      border-radius: 18px;
+      padding: 24px 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+
+    .kg-avatar {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
       justify-content: center;
-    }
-
-    /* Tarjeta de Perfil */
-    .profile-card {
-      background: #1a1017;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    .profile-card:hover {
-      transform: translateY(-5px);
-      border-color: #ff4d7d;
-    }
-
-    .profile-img-container {
-      width: 100%;
-      height: 380px;
-      background-color: #2b1724;
-      overflow: hidden;
-      position: relative;
-    }
-    .profile-img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .profile-info {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
-    }
-    .profile-info h2 {
-      font-size: 1.5rem;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .profile-info p {
-      font-size: 0.9rem;
-      color: #c4a5b7;
-      margin-bottom: 20px;
-    }
-
-    /* Botón de Contacto Directo */
-    .btn-telegram {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      padding: 12px;
-      border-radius: 25px;
-      background: #e83d70;
-      color: white;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rosa), var(--morado));
+      font-size: 30px;
       font-weight: bold;
-      font-size: 0.95rem;
-      transition: background 0.3s ease;
-    }
-    .btn-telegram:hover {
-      background: #f05282;
     }
 
-    /* Pie de página */
-    footer {
-      margin-top: auto;
-      padding: 20px;
-      text-align: center;
-      color: #8c707f;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      width: 100%;
+    .kg-tarjeta h3 {
+      margin: 8px 0;
+      font-size: 21px;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
+    .kg-tarjeta p {
+      min-height: 45px;
+      color: var(--suave);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .kg-boton {
+      display: block;
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 24px;
+      background: var(--rosa);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .kg-boton:hover {
+      background: #ff78aa;
+      transform: translateY(-2px);
+    }
+
+    .kg-pie {
+      margin-top: 35px;
+      color: var(--suave);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 850px) {
+      .kg-modelos {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .profile-img-container {
-        height: 340px;
+    }
+
+    @media (max-width: 520px) {
+      .kg-logo {
+        font-size: 38px;
+      }
+
+      .kg-modelos {
+        grid-template-columns: 1fr;
       }
     }
   </style>
-</head>
-<body>
 
-  <!-- Encabezado -->
-  <header>
-    <h1>CUPIDO</h1>
-    <p>Catálogo Exclusivo · Selección de Perfiles</p>
-  </header>
+  <div class="kg-contenedor">
+    <div class="kg-logo">Kupido Girls</div>
 
-  <!-- Rejilla del Catálogo -->
-  <main class="catalog-container">
+    <p class="kg-subtitulo">
+      Conoce perfiles de creadoras adultas y contacta directamente con ellas
+      a través de sus canales oficiales.
+    </p>
 
-    <!-- Tarjeta 1: Camila Rueda -->
-    <article class="profile-card">
-      <div class="profile-img-container">
-        <img src="camila.jpg" alt="Camila Rueda">
-      </div>
-      <div class="profile-info">
-        <div>
-          <h2>Camila Rueda</h2>
-          <p>Contenido exclusivo y atención personalizada.</p>
-        </div>
-        <a class="btn-telegram" 
-           href="https://t.me/CamilaRued?text=Hola,%20Camila,%20vengo%20de%20tu%20p%C3%A1gina%20web" 
-           target="_blank" 
-           rel="noopener noreferrer">
-           Contactar por Telegram
+    <div class="kg-aviso">
+      🔞 Sitio exclusivo para mayores de 18 años.
+      Kupido Girls solo facilita el acceso a los perfiles enlazados.
+    </div>
+
+    <div class="kg-modelos">
+
+      <article class="kg-tarjeta">
+        <div class="kg-avatar">YS</div>
+        <h3>Yeremy Saesh</h3>
+        <p>Perfil y canales oficiales.</p>
+
+        <a class="kg-boton"
+           href="https://www.facebook.com/share/17o72tkJdw/"
+           target="_blank" rel="noopener noreferrer">
+          Facebook
         </a>
-      </div>
-    </article>
 
-    <!-- Tarjeta 2: Juliiethh -->
-    <article class="profile-card">
-      <div class="profile-img-container">
-        <img src="julieth.jpg" alt="Juliiethh">
-      </div>
-      <div class="profile-info">
-        <div>
-          <h2>Juliiethh</h2>
-          <p>Atención discreta y experiencias a tu medida.</p>
-        </div>
-        <a class="btn-telegram" 
-           href="https://t.me/Juliiietthh?text=Hola,%20Julieth,%20vengo%20de%20tu%20p%C3%A1gina%20web" 
-           target="_blank" 
-           rel="noopener noreferrer">
-           Contactar por Telegram
+        <a class="kg-boton"
+           href="https://www.instagram.com/yeresae?rpxt=MWIxcnFqMjhtMjBldQ=="
+           target="_blank" rel="noopener noreferrer">
+          Instagram
         </a>
-      </div>
-    </article>
 
-    <!-- Tarjeta 3: Vannessa -->
-    <article class="profile-card">
-      <div class="profile-img-container">
-        <img src="vanessa.jpg" alt="Vannessa">
-      </div>
-      <div class="profile-info">
-        <div>
-          <h2>Vannessa</h2>
-          <p>Perfil exclusivo y contenido privado.</p>
-        </div>
-        <a class="btn-telegram" 
-           href="https://t.me/Okvanesa09?text=Hola,%20Vanessa,%20vengo%20de%20tu%20p%C3%A1gina%20web" 
-           target="_blank" 
-           rel="noopener noreferrer">
-           Contactar por Telegram
+        <a class="kg-boton"
+           href="https://whatsapp.com/dl/"
+           target="_blank" rel="noopener noreferrer">
+          WhatsApp
         </a>
-      </div>
-    </article>
+      </article>
 
-  </main>
+      <article class="kg-tarjeta">
+        <div class="kg-avatar">CR</div>
+        <h3>Camila Rueda</h3>
+        <p>Contenido exclusivo y personalizado.</p>
 
-  <!-- Pie de página -->
-  <footer>
-    <small>Cupido Catálogo · Solo para mayores de 18 años · Respeto y privacidad</small>
-  </footer>
+        <a class="kg-boton"
+           href="https://t.me/CamilaRueda"
+           target="_blank" rel="noopener noreferrer">
+          Telegram
+        </a>
+      </article>
 
-</body>
-  </html>
-  
+      <article class="kg-tarjeta">
+        <div class="kg-avatar">V</div>
+        <h3>Vanessa</h3>
+        <p>Conoce su perfil y contáctala directamente.</p>
+
+        <a class="kg-boton"
+           href="https://t.me/Okvanesa09"
+           target="_blank" rel="noopener noreferrer">
+          Telegram
+        </a>
+      </article>
+
+      <article class="kg-tarjeta">
+        <div class="kg-avatar">J</div>
+        <h3>Julliieht</h3>
+        <p>Perfil oficial y contacto directo.</p>
+
+        <a class="kg-boton"
+           href="https://t.me/Juliiietthh"
+           target="_blank" rel="noopener noreferrer">
+          Telegram
+        </a>
+      </article>
+
+    </div>
+
+    <div class="kg-pie">
+      Cada modelo administra su propio perfil y sus conversaciones.
+      Kupido Girls no solicita pagos ni documentos a los visitantes.
+      <br><br>
+      © 2026 Kupido Girls · Privacidad · Términos · Reportar un perfil
+    </div>
+  </div>
+</div>
